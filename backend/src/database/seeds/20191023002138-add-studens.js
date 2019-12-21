@@ -1,0 +1,123 @@
+module.exports = {
+  up: queryInterface => {
+    return queryInterface.bulkInsert(
+      'students',
+      [
+        {
+          name: 'Atom Mark',
+          email: 'studenta@email.com',
+          age: 36,
+          height: 178,
+          weight: 94,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          name: 'Robert Bry',
+          email: 'studentb@email.com',
+          age: 26,
+          height: 158,
+          weight: 74,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          name: 'Stela Cruz',
+          email: 'studentc@email.com',
+          age: 16,
+          height: 128,
+          weight: 64,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          name: 'Damion Lay',
+          email: 'studentd@email.com',
+          age: 38,
+          height: 175,
+          weight: 87,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          name: 'Erick Stoner',
+          email: 'studente@email.com',
+          age: 28,
+          height: 168,
+          weight: 77,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          name: 'Follman Park',
+          email: 'studentf@email.com',
+          age: 30,
+          height: 178,
+          weight: 84,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          name: 'Milk Pencil',
+          email: 'studentg@email.com',
+          age: 26,
+          height: 164,
+          weight: 94,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          name: 'Honor Fail',
+          email: 'studenth@email.com',
+          age: 46,
+          height: 178,
+          weight: 94,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          name: 'Iuy Grate',
+          email: 'studenti@email.com',
+          age: 66,
+          height: 168,
+          weight: 54,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          name: 'Jackson Bill',
+          email: 'studentj@email.com',
+          age: 78,
+          height: 165,
+          weight: 77,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          name: 'Lara Camilla',
+          email: 'studentl@email.com',
+          age: 35,
+          height: 148,
+          weight: 57,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          name: 'Mike B',
+          email: 'studentm@email.com',
+          age: 30,
+          height: 148,
+          weight: 64,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+      ],
+      {}
+    );
+  },
+
+  down: queryInterface => {
+    return queryInterface.bulkDelete('students', null, {});
+  },
+};
