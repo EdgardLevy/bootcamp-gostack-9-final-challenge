@@ -65,6 +65,7 @@ SENTRY_DSN=
 5. `yarn sequelize db:migrate`
 6. `yarn sequelize db:seed:all`
 7. `yarn dev`
+8. Open another terminal or prompt for this folder and execute `yarn queue`
 
 ### Frontend
 
