@@ -75,7 +75,7 @@ Execute inside **frontend** folder:
 3. Open browser and go to `http://localhost:3000`
 4. On `Sing In` Page, use admin@gypoint.com as **user** and `123456` as **password**
 
->To sign in to the student mobile application, create a student from the web application, do subscription, and use the student ID sent in the subscription email
+>
 
 ### Mobile
 
@@ -87,6 +87,7 @@ Execute inside **mobile** folder:
 1. `yarn`
 2. `yarn start`
 3. Open another terminal or prompt for this folder and execute `yarn android`
+4. To sign in to the student mobile application, create a student from the web application, do subscription, and use the student ID sent in the subscription email
 
 
 Enjoy!
