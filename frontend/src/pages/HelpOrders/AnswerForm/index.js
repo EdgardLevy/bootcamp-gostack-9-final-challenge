@@ -7,7 +7,7 @@ import {Container} from './styles';
 import {PrimaryButton} from '~/components/Button';
 
 const schema = Yup.object().shape({
-  answer: Yup.string().required('Informe a resposta'),
+  answer: Yup.string().required('Type a answer'),
 });
 /**
  *
@@ -27,9 +27,9 @@ export default function AnswerForm({isOpen, helpOrder, onClose, onFormSubmit}) {
     <Popup open={isOpen} modal onClose={onClose}>
       {isOpen && (
         <Container>
-          <label htmlFor="question">PERGUNTA DO ALUNO</label>
+          <label htmlFor="question">QUESTION</label>
           <span name="question">{helpOrder.question}</span>
-          <label htmlFor="answerForm">SUA RESPOSTA</label>
+          <label htmlFor="answerForm">ANSWER</label>
 
           <Form id="answerForm">
             <textarea onChange={e => setAnswer(e.target.value)} />
@@ -45,7 +45,7 @@ export default function AnswerForm({isOpen, helpOrder, onClose, onFormSubmit}) {
                   setError(error.message);
                 }
               }}>
-              <span>Responder aluno</span>
+              <span>Reply</span>
             </PrimaryButton>
           </Form>
         </Container>

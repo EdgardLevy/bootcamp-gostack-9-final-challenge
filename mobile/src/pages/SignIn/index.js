@@ -24,7 +24,7 @@ export default function SignIn({navigation}) {
         <Form>
           <FormInput
             keyboardType="number-pad"
-            placeholder="Informe seu ID de cadastro"
+            placeholder="Enter your registration ID"
             returnKeyType="send"
             onSubmitEditing={() => {}}
             value={userID}
@@ -32,7 +32,7 @@ export default function SignIn({navigation}) {
           />
 
           <SubmitButton loading={loading} onPress={handleSubmit}>
-            Entrar no sistema
+            Sign In
           </SubmitButton>
         </Form>
       </Container>

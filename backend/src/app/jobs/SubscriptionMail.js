@@ -28,6 +28,7 @@ class SubscriptionMail {
       template: 'subscription',
       context: {
         plan: subscription.plan.title,
+        student_id: subscription.student.id,
         name: subscription.student.name,
         startDate: format(parseISO(subscription.start_date), "MMMM dd',' yyyy"),
         endDate: format(parseISO(subscription.end_date), "MMMM dd',' yyyy"),

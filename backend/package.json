@@ -7,7 +7,7 @@
   "author": "Edgard Levy <edgardlevy@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "setup-db": "yarn sequelize db:migrate && yarn sequelize db:seed:all",
+    "setup:db": "yarn sequelize db:migrate && yarn sequelize db:seed:all",
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",

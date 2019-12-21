@@ -3,7 +3,6 @@ import {MdReply} from 'react-icons/md';
 
 import {toast} from 'react-toastify';
 import {format, parseISO} from 'date-fns';
-import pt from 'date-fns/locale/pt';
 import {Container} from '../styles';
 import {PaginateButton, ActionButton} from '~/components/Button';
 import api from '~/services/api';
@@ -41,10 +40,7 @@ export default function Grid() {
       response.data.records.map(item => {
         item.createdAtFormatted = format(
           parseISO(item.created_at),
-          "d 'de' MMMM 'de' yyyy",
-          {
-            locale: pt,
-          }
+          "MMMM dd',' yyyy"
         );
       });
       setData(response.data);
@@ -74,8 +70,6 @@ export default function Grid() {
   }
 
   async function handleFormSubmit(id, answer) {
-    console.tron.log('handleFormSubmit', data);
-
     try {
       await api.post(`${path}/${id}/answer`, {answer});
 
@@ -87,9 +81,9 @@ export default function Grid() {
       _data.meta.total_records -= 1;
       setData(_data);
       setHelpOrderId(null);
-      toast.success('Pedido de auxílio respondido com sucesso');
+      toast.success('Help order successfully answered');
     } catch (error) {
-      toast.error('Falha no envio da resposta, entre em contato com o suporte');
+      toast.error('Failed to submit response, please contact support');
     }
   }
 
@@ -112,6 +106,7 @@ export default function Grid() {
           <tr>
             <th>Student</th>
             <th>Question</th>
+            <th>Created At</th>
             <th width="80" />
           </tr>
         </thead>
@@ -121,6 +116,7 @@ export default function Grid() {
               <tr key={helpOrder.id}>
                 <td>{helpOrder.student.name}</td>
                 <td>{helpOrder.question}</td>
+                <td>{helpOrder.createdAtFormatted}</td>
 
                 <td className="center">
                   <ActionButton

@@ -8,7 +8,8 @@
 
 <p align="center">
   <a href="#about-challenge">About challenge</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#install-instructions">Install Instructions</a>&nbsp;&nbsp;&nbsp;
+  <a href="#install-instructions">Install Instructions</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#screenshots">Screenshots</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
 ## **About Challenge**
@@ -33,15 +34,14 @@ git@github.com:EDevLevy/bootcamp-gostack-9-final-challenge.git <projectname>
 ```git
 https://github.com/EDevLevy/bootcamp-gostack-9-final-challenge.git <projectname>
 ```
-## 2. Install Dependencies
+## 2. Install dependencies and configure
+
+1. From root project folder execute `yarn install:all`
 
 ### Backend
 
-Execute inside **backend** folder:
+2. From **Backend** project folder create `.env` file and set these constants and execute the commands below
 
-
-1. `yarn`
-2. create `.env` file and set these constants
 ```js
 APP_SECRET=
 
@@ -71,12 +71,9 @@ SENTRY_DSN=
 
 Execute inside **frontend** folder:
 
-1. `yarn` or `npm install`
-2. `yarn start`
-3. Open browser and go to `http://localhost:3000`
-4. On `Sing In` Page, use admin@gypoint.com as **user** and `123456` as **password**
-
->
+1. execute `yarn start`
+2. Open browser and go to `http://localhost:3000`
+3. On `Sing In` Page, use admin@gypoint.com as **user** and `123456` as **password**
 
 ### Mobile
 
@@ -85,10 +82,40 @@ Requirements
 
 Execute inside **mobile** folder:
 
-1. `yarn`
-2. `yarn start`
-3. Open another terminal or prompt for this folder and execute `yarn android`
-4. To sign in to the student mobile application, create a student from the web application, do subscription, and use the student ID sent in the subscription email
+1. `yarn android`
+2. To sign in to the student mobile application, create a student from the web application, do subscription, and use the student ID sent in the subscription email
 
 
 Enjoy!
+
+## Screenshots
+
+### Frontend
+<div align="center">
+  <img alt="frontend1" title="Gympoint" src=".github/frontend1.png" width="600" />
+</div>
+<div align="center">
+  <img alt="frontend2" title="Gympoint" src=".github/frontend2.png" width="600" />
+</div>
+<div align="center">
+  <img alt="frontend3" title="Gympoint" src=".github/frontend3.png" width="600" />
+</div>
+<div align="center">
+  <img alt="frontend4" title="Gympoint" src=".github/frontend4.png" width="600" />
+</div>
+<div align="center">
+  <img alt="frontend5" title="Gympoint" src=".github/frontend5.png" width="600" />
+</div>
+<div align="center">
+  <img alt="frontend6" title="Gympoint" src=".github/frontend6.png" width="600" />
+</div>
+
+### Mobile
+
+<div align="center">
+  <img alt="mobile1" title="Gympoint" src=".github/mobile1.png" width="200" />
+  <img alt="mobile2" title="Gympoint" src=".github/mobile2.png" width="200"/>
+  <img alt="mobile3" title="Gympoint" src=".github/mobile3.png" width="200"/>
+  <img alt="mobile4" title="Gympoint" src=".github/mobile4.png" width="200"/>
+  <img alt="mobile5" title="Gympoint" src=".github/mobile5.png" width="200"/>
+</div>
