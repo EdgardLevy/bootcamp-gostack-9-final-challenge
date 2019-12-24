@@ -6,7 +6,7 @@ import Student from '../models/Student';
 
 class HelpOrderController {
   async index(req, res) {
-    const { page = 1, limit = 20 } = req.query;
+    const { page = 1, limit = 10 } = req.query;
     const { student_id } = req.params;
 
     const schema = Yup.object().shape({
