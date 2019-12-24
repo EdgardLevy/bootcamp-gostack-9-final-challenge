@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {TouchableOpacity, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import PropTypes from 'prop-types';
+
 import Background from '~/components/Background';
 import Button from '~/components/Button';
 import api from '~/services/api';
@@ -18,6 +20,7 @@ export default function NewHelpOrder({navigation}) {
       setLoading(true);
       await api.post(`/students/${student_id}/help-orders`, {question});
       setLoading(false);
+      Alert.alert('Your help request was sent successfully');
       navigation.navigate('HelpOrderList');
     } catch (error) {
       setLoading(false);
@@ -51,3 +54,10 @@ NewHelpOrder.navigationOptions = ({navigation}) => ({
     </TouchableOpacity>
   ),
 });
+
+NewHelpOrder.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    getParam: PropTypes.func.isRequired,
+  }).isRequired,
+};
