@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
+import {TouchableOpacity, Text} from 'react-native';
 
 import {
   Container,
@@ -17,6 +17,7 @@ export default function HelpOrder({data, onPress}) {
       <TouchableOpacity onPress={onPress}>
         <Header>
           <Status answer={data.answer}>
+            <Text>{data.id}</Text>
             <StatusIcon answer={data.answer} />
             <StatusText answer={data.answer}>
               {data.answer ? 'Answered' : 'No reply'}

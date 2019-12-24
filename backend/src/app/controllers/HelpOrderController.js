@@ -30,6 +30,7 @@ class HelpOrderController {
       limit,
       offset: (page - 1) * limit,
       where: { student_id },
+      order: [['id', 'DESC']],
     };
 
     const result = await HelpOrder.findAndCountAll(options);
