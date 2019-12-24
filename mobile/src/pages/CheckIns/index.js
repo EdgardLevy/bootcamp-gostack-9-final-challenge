@@ -4,6 +4,7 @@ import {withNavigationFocus} from 'react-navigation';
 import {useSelector} from 'react-redux';
 
 import {parseISO, formatRelative} from 'date-fns';
+import PropTypes from 'prop-types';
 
 import Background from '~/components/Background';
 import Button from '~/components/Button';
@@ -43,10 +44,9 @@ function CheckIns({isFocused}) {
       setLoading(false);
     }
     loadCheckIns();
-  }, [student,isFocused]);
+  }, [student, isFocused]);
 
   function handleAdd() {
-
     Alert.alert(
       'New Check-In',
       'Confirm?',
@@ -55,39 +55,40 @@ function CheckIns({isFocused}) {
           text: 'No',
           style: 'cancel',
         },
-        {text: 'Yes', onPress: async () => {
-
-          try {
-            setLoading(true);
-            const response = await api.post(`students/${student.id}/checkins`);
-            const idx = checkIns.length + 1;
-            setCheckIns([
-              {
-                ...response.data,
-                index: idx,
-                dateFormatted: formatRelative(
-                  parseISO(response.data.created_at),
-                  new Date(),
-                  {
-                    addSuffix: true,
-                  }
-                ),
-              },
-              ...checkIns,
-            ]);
-            setLoading(false);
-            Alert.alert('Check-In Successfully');
-          } catch (error) {
-            setLoading(false);
-            Alert.alert(error.response.data.error);
-          }
-
-
-        }},
+        {
+          text: 'Yes',
+          onPress: async () => {
+            try {
+              setLoading(true);
+              const response = await api.post(
+                `students/${student.id}/checkins`
+              );
+              const idx = checkIns.length + 1;
+              setCheckIns([
+                {
+                  ...response.data,
+                  index: idx,
+                  dateFormatted: formatRelative(
+                    parseISO(response.data.created_at),
+                    new Date(),
+                    {
+                      addSuffix: true,
+                    }
+                  ),
+                },
+                ...checkIns,
+              ]);
+              setLoading(false);
+              Alert.alert('Check-In Successfully');
+            } catch (error) {
+              setLoading(false);
+              Alert.alert(error.response.data.error);
+            }
+          },
+        },
       ],
-      {cancelable: false},
+      {cancelable: false}
     );
-
   }
 
   return (
@@ -105,5 +106,13 @@ function CheckIns({isFocused}) {
     </Background>
   );
 }
+
+CheckIns.propTypes = {
+  isFocused: PropTypes.bool,
+};
+
+CheckIns.defaultProps = {
+  isFocused: false,
+};
 
 export default withNavigationFocus(CheckIns);
