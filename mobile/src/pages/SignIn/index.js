@@ -8,7 +8,7 @@ import {signInRequest} from '~/store/modules/auth/actions';
 
 import {Container, Form, FormInput, SubmitButton} from './styles';
 
-export default function SignIn({navigation}) {
+export default function SignIn() {
   const dispatch = useDispatch();
 
   const [userID, setUserID] = useState('');
@@ -26,7 +26,7 @@ export default function SignIn({navigation}) {
             keyboardType="number-pad"
             placeholder="Enter your registration ID"
             returnKeyType="send"
-            onSubmitEditing={() => {}}
+            onSubmitEditing={handleSubmit}
             value={userID}
             onChangeText={setUserID}
           />
