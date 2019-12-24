@@ -18,7 +18,11 @@ export const Container = styled.div`
 
     input {
       margin-left: 5px;
-      padding-left: 15px;
+      padding-left: 30px;
+      border: 1px solid #eee;
+      background-image: url('search-24px.svg');
+      background-position: 5px center;
+      background-repeat: no-repeat;
     }
     button {
       margin-left: 5px;
