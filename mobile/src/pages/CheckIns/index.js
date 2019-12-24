@@ -43,32 +43,51 @@ function CheckIns({isFocused}) {
       setLoading(false);
     }
     loadCheckIns();
-  }, [student]);
+  }, [student,isFocused]);
 
-  async function handleAdd() {
-    try {
-      setLoading(true);
-      const response = await api.post(`students/${student.id}/checkins`);
-      const idx = checkIns.length + 1;
-      setCheckIns([
+  function handleAdd() {
+
+    Alert.alert(
+      'New Check-In',
+      'Confirm?',
+      [
         {
-          ...response.data,
-          index: idx,
-          dateFormatted: formatRelative(
-            parseISO(response.data.created_at),
-            new Date(),
-            {
-              addSuffix: true,
-            }
-          ),
+          text: 'No',
+          style: 'cancel',
         },
-        ...checkIns,
-      ]);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      Alert.alert(error.response.data.error);
-    }
+        {text: 'Yes', onPress: async () => {
+
+          try {
+            setLoading(true);
+            const response = await api.post(`students/${student.id}/checkins`);
+            const idx = checkIns.length + 1;
+            setCheckIns([
+              {
+                ...response.data,
+                index: idx,
+                dateFormatted: formatRelative(
+                  parseISO(response.data.created_at),
+                  new Date(),
+                  {
+                    addSuffix: true,
+                  }
+                ),
+              },
+              ...checkIns,
+            ]);
+            setLoading(false);
+            Alert.alert('Check-In Successfully');
+          } catch (error) {
+            setLoading(false);
+            Alert.alert(error.response.data.error);
+          }
+
+
+        }},
+      ],
+      {cancelable: false},
+    );
+
   }
 
   return (
