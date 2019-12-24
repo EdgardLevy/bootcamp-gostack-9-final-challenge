@@ -3,6 +3,7 @@ import {withNavigationFocus} from 'react-navigation';
 import {useSelector} from 'react-redux';
 
 import {parseISO, formatRelative} from 'date-fns';
+import PropTypes from 'prop-types';
 
 import Background from '~/components/Background';
 import Button from '~/components/Button';
@@ -71,5 +72,16 @@ function HelpOrderList({navigation, isFocused}) {
     </Background>
   );
 }
+
+HelpOrderList.propTypes = {
+  isFocused: PropTypes.bool,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+HelpOrderList.defaultProps = {
+  isFocused: false,
+};
 
 export default withNavigationFocus(HelpOrderList);
