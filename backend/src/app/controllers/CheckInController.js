@@ -2,15 +2,19 @@ import { subDays } from 'date-fns';
 import { Op } from 'sequelize';
 import * as Yup from 'yup';
 
+import totalizeRecords from '../../util/dbfunctions';
 import CheckIn from '../models/CheckIn';
 import Student from '../models/Student';
 
 class CheckInController {
   async index(req, res) {
+    const { page = 1, limit = 10 } = req.query;
+    const { student_id } = req.params;
+
     const schema = Yup.object().shape({
       student_id: Yup.number().required(),
     });
-    const { student_id } = req.params;
+
     // validate schema and return all errors messages if need
     try {
       await schema.validate({ student_id }, { abortEarly: false });
@@ -24,8 +28,16 @@ class CheckInController {
       return res.status(400).json({ error: 'Student does not exists' });
     }
 
-    const checkins = await CheckIn.findAll({ where: { student_id } });
-    return res.json(checkins);
+    const options = {
+      limit,
+      offset: (page - 1) * limit,
+      where: { student_id },
+      order: [['id', 'DESC']],
+    };
+
+    const result = await CheckIn.findAndCountAll(options);
+
+    return res.json(totalizeRecords(result, limit, page));
   }
 
   async store(req, res) {

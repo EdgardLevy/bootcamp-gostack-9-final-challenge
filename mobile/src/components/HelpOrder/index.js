@@ -17,7 +17,6 @@ export default function HelpOrder({data, onPress}) {
       <TouchableOpacity onPress={onPress}>
         <Header>
           <Status answer={data.answer}>
-            <Text>{data.id}</Text>
             <StatusIcon answer={data.answer} />
             <StatusText answer={data.answer}>
               {data.answer ? 'Answered' : 'No reply'}
